@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Audio Recorder - Record, Play, and Download Audio</title>
+    <link rel="stylesheet" href="https://cdn.replit.com/agent/bootstrap-agent-dark-theme.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container py-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-8 col-md-10">
+                <div class="text-center mb-5">
+                    <h1 class="display-4 mb-4">Web Audio Recorder</h1>
+                    <p class="lead mb-5">Record, play, and download high-quality audio directly from your browser</p>
+                    
+                    <div class="recorder-container">
+                        <div id="permissionSection" class="permission-section d-none">
+                            <h3 class="h4 mb-3">Microphone Access Required</h3>
+                            <p class="mb-3">To use the recorder, we need access to your microphone. Your privacy is important to us - we only record when you click the record button.</p>
+                            
+                            <button id="permissionButton" class="permission-button">
+                                <img src="{{ url_for('static', filename='icons/mic.svg') }}" alt="Microphone" class="icon">
+                                Grant Microphone Access
+                            </button>
+                            
+                            <div id="browserInstructions" class="browser-instructions">
+                                <!-- Browser-specific instructions will be inserted here -->
+                            </div>
+                        </div>
+
+                        <div class="status-indicator mb-4" id="statusIndicator">
+                            Checking microphone permissions...
+                        </div>
+                        
+                        <div class="btn-group d-flex justify-content-center" role="group">
+                            <button id="recordButton" class="btn btn-primary btn-lg" disabled>
+                                <img src="{{ url_for('static', filename='icons/mic.svg') }}" alt="Record" class="icon">
+                                Record
+                            </button>
+                            <button id="stopButton" class="btn btn-danger btn-lg" disabled>
+                                <img src="{{ url_for('static', filename='icons/stop.svg') }}" alt="Stop" class="icon">
+                                Stop
+                            </button>
+                        </div>
+                    </div>
+
+                    <div id="audioContainer" class="d-none">
+                        <audio id="audioPlayer" controls class="mb-4"></audio>
+                        <button id="downloadButton" class="btn btn-info btn-lg">
+                            Download Recording
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/recorder.js') }}"></script>
+</body>
+</html>

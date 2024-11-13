@@ -1,0 +1,130 @@
+body {
+    background: linear-gradient(135deg, var(--bs-dark) 0%, var(--bs-black) 100%);
+    min-height: 100vh;
+}
+
+.recorder-container {
+    padding: 2rem;
+    border-radius: 12px;
+    background-color: rgba(var(--bs-dark-rgb), 0.7);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.recorder-container:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+}
+
+.status-indicator {
+    font-size: 1.2rem;
+    color: var(--bs-secondary);
+    margin-bottom: 1.5rem;
+    transition: color 0.3s ease;
+    padding: 1rem;
+    border-radius: 8px;
+    background-color: rgba(var(--bs-dark-rgb), 0.5);
+}
+
+.status-indicator.recording {
+    color: var(--bs-danger);
+    animation: pulse 1.5s infinite;
+}
+
+.permission-section {
+    margin: 2rem 0;
+    padding: 1.5rem;
+    border-radius: 8px;
+    background-color: rgba(var(--bs-dark-rgb), 0.5);
+    border: 1px solid var(--bs-warning);
+}
+
+.permission-section.error {
+    border-color: var(--bs-danger);
+    animation: shake 0.5s ease-in-out;
+}
+
+.permission-button {
+    background-color: var(--bs-warning);
+    color: var(--bs-dark);
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    border: none;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    margin: 1rem 0;
+}
+
+.permission-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(255, 193, 7, 0.2);
+}
+
+.browser-instructions {
+    margin-top: 1rem;
+    padding: 1rem;
+    border-radius: 8px;
+    background-color: rgba(var(--bs-dark-rgb), 0.3);
+}
+
+.icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 8px;
+    transition: transform 0.2s ease;
+}
+
+.btn:hover .icon {
+    transform: scale(1.1);
+}
+
+@keyframes pulse {
+    0% { opacity: 1; }
+    50% { opacity: 0.5; }
+    100% { opacity: 1; }
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+}
+
+.btn-group {
+    gap: 15px;
+}
+
+.btn {
+    transition: all 0.3s ease;
+    padding: 0.6rem 1.2rem;
+}
+
+.btn:hover {
+    transform: translateY(-1px);
+}
+
+#audioPlayer {
+    background-color: var(--bs-dark);
+    border-radius: 8px;
+    margin-top: 2rem;
+    width: 100%;
+}
+
+#audioContainer {
+    margin-top: 2rem;
+    padding: 1.5rem;
+    border-radius: 8px;
+    background-color: rgba(var(--bs-dark-rgb), 0.5);
+}
+
+#downloadButton {
+    margin-top: 1rem;
+}
+
+@media (max-width: 768px) {
+    .recorder-container {
+        padding: 1.5rem;
+        margin: 1rem;
+    }
+}
